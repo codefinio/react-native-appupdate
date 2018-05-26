@@ -50,7 +50,7 @@ class AppUpdate {
           if (isUpdate) {
             this.downloadApk(remote);
           }
-        });
+        }, remote);
       }
     } else if(this.options.notNeedUpdateApp) {
       this.options.notNeedUpdateApp();
@@ -115,7 +115,7 @@ class AppUpdate {
           if (isUpdate) {
             RNAppUpdate.installFromAppStore(trackViewUrl);
           }
-        });
+        }, data);
       }
     }
   }
