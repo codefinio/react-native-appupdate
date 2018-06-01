@@ -109,8 +109,9 @@ class AppUpdate {
     const result = data.results[0];
     const version = result.version;
     const trackViewUrl = result.trackViewUrl;
-    console.log('version: ', +version.replace(/[.]/g, ''), +RNAppUpdate.versionName.replace(/[.]/g, ''), +version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, ''))
-    if (+version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, '')) {
+    // console.log('version: ', +version.replace(/[.]/g, ''), +RNAppUpdate.versionName.replace(/[.]/g, ''), +version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, ''))
+    if (version !== RNAppUpdate.versionName) {
+    // if (+version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, '')) {
       if (this.options.needUpdateApp) {
         this.options.needUpdateApp((isUpdate) => {
           if (isUpdate) {
