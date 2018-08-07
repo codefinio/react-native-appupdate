@@ -39,7 +39,7 @@ class AppUpdate {
 
   getApkVersionSuccess(remote) {
     console.log("getApkVersionSuccess", remote);
-    if (RNAppUpdate.versionName !== remote.versionName) {
+    if (this.options.nowVersion !== remote.versionName) {
       if (remote.forceUpdate) {
         if(this.options.forceUpdateApp) {
           this.options.forceUpdateApp();
@@ -109,9 +109,9 @@ class AppUpdate {
     const result = data.results[0];
     const version = result.version;
     const trackViewUrl = result.trackViewUrl;
-    // console.log('version: ', +version.replace(/[.]/g, ''), +RNAppUpdate.versionName.replace(/[.]/g, ''), +version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, ''))
-    if (version !== RNAppUpdate.versionName) {
-    // if (+version.replace(/[.]/g, '') > +RNAppUpdate.versionName.replace(/[.]/g, '')) {
+    // console.log('version: ', +version.replace(/[.]/g, ''), +this.options.nowVersion.replace(/[.]/g, ''), +version.replace(/[.]/g, '') > +this.options.nowVersion.replace(/[.]/g, ''))
+    if (version !== this.options.nowVersion) {
+    // if (+version.replace(/[.]/g, '') > +this.options.nowVersion.replace(/[.]/g, '')) {
       if (this.options.needUpdateApp) {
         this.options.needUpdateApp((isUpdate) => {
           if (isUpdate) {
