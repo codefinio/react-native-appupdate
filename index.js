@@ -34,12 +34,13 @@ class AppUpdate {
       console.log("apkVersionUrl doesn't exist.");
       return;
     }
-    this.GET(this.options.apkVersionUrl, this.getApkVersionSuccess.bind(this), this.getVersionError.bind(this));
+    // this.GET(this.options.apkVersionUrl, this.getApkVersionSuccess.bind(this), this.getVersionError.bind(this));
+    this.getApkVersionSuccess(this.options)
   }
 
   getApkVersionSuccess(remote) {
     console.log("getApkVersionSuccess", remote);
-    if (this.options.nowVersion !== remote.versionName) {
+    if (this.options.nowVersion !== remote.updateToVersion) {
       if (remote.forceUpdate) {
         if(this.options.forceUpdateApp) {
           this.options.forceUpdateApp();
