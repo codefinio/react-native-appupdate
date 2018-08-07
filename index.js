@@ -30,10 +30,10 @@ class AppUpdate {
     if (jobId !== -1) {
       return;
     }
-    if (!this.options.apkVersionUrl) {
-      console.log("apkVersionUrl doesn't exist.");
-      return;
-    }
+    // if (!this.options.apkVersionUrl) {
+    //   console.log("apkVersionUrl doesn't exist.");
+    //   return;
+    // }
     // this.GET(this.options.apkVersionUrl, this.getApkVersionSuccess.bind(this), this.getVersionError.bind(this));
     this.getApkVersionSuccess(this.options)
   }
